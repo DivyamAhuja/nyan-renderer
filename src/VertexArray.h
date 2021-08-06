@@ -12,8 +12,8 @@ public:
     VertexArray();
     ~VertexArray();
 
-    void linkAttrib(VertexBuffer& VBO, GLuint layout, GLuint count, GLboolean normalize, GLenum type, GLsizeiptr stride, void* offset);
-    void linkAttrib(GLuint layout, GLuint count, GLboolean normalize, GLenum type, GLsizeiptr stride, void* offset);
+    void linkAttrib(VertexBuffer& VBO, GLuint layout, GLuint count, GLboolean normalize, GLenum type, GLsizei stride, void* offset);
+    void linkAttrib(GLuint layout, GLuint count, GLboolean normalize, GLenum type, GLsizei stride, void* offset);
     void linkLayout(VertexBuffer& VBO, VertexLayout& layout);
     void linkLayout(VertexLayout& layout);
 
