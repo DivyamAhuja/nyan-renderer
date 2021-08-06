@@ -34,6 +34,8 @@ MessageCallback(GLenum source,
 
 int main(int argc, char **argv)
 {
+    std::filesystem::path executable_path = std::filesystem::path(argv[0]).parent_path();
+
     GLFWwindow *window;
 
     if (!glfwInit())
@@ -102,18 +104,17 @@ int main(int argc, char **argv)
     vbo.unbind();
     ebo.unbind();
 
-    std::filesystem::path vertex_shader_path("res");
-    vertex_shader_path /= "shaders";
-    vertex_shader_path /= "default.vert";
-
-    std::filesystem::path fragment_shader_path("res");
-    fragment_shader_path /= "shaders";
-    fragment_shader_path /= "default.frag";
+    std::filesystem::path vertex_shader_path = executable_path/"res"/"shaders"/"default.vert";
+    std::filesystem::path fragment_shader_path = executable_path/"res"/"shaders"/"default.frag";
     
-    Shader def_shader(vertex_shader_path.c_str(), fragment_shader_path.c_str());
+    Shader def_shader(vertex_shader_path.string().c_str(), fragment_shader_path.string().c_str());
 
     Texture tex(
-        std::filesystem::path("res").append("textures").append("nyan.png").c_str(),
+        executable_path
+            .append("res")
+            .append("textures")
+            .append("nyan.png")
+            .string().c_str(),
         GL_TEXTURE_2D,
         GL_TEXTURE0,
         GL_RGBA,
