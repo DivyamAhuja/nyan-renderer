@@ -92,9 +92,10 @@ int main(int argc, char **argv)
     ElementBuffer ebo(indices, sizeof(indices));
     
     VertexLayout layout;
-    layout.push({.type = VertexLayout::element_type::FLOAT, .count = 3, .normalize = GL_FALSE, .name = "positions"});
-    layout.push({.type = VertexLayout::element_type::FLOAT, .count = 3, .normalize = GL_FALSE, .name = "colors"});
-    layout.push({.type = VertexLayout::element_type::FLOAT, .count = 2, .normalize = GL_FALSE, .name = "uv_coordinates"});
+    layout.push({VertexLayout::element_type::FLOAT, 3, GL_FALSE, "positions"});
+    layout.push({VertexLayout::element_type::FLOAT, 3, GL_FALSE, "colors"});
+    layout.push({VertexLayout::element_type::FLOAT, 2, GL_FALSE, "uv_coordinates"});
+    
     vao.linkLayout(vbo, layout);
     
     vao.unbind();
