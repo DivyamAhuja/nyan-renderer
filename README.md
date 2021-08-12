@@ -1,6 +1,6 @@
 # NYAN RENDERER
 
-A basic OpenGL renderer using GLFW, GLAD, GLM, ImGui etc. libraries.
+A basic OpenGL renderer using GLFW, GLAD, GLM, ImGui, nlohmann json etc. libraries.
 
 ---
 
@@ -23,3 +23,8 @@ In project root directory
     ./build/nyan
 ```
 
+---
+
+Based on [Victor Gordan OpenGL Tutorials](https://youtube.com/playlist?list=PLPaoO-vpZnumdcb4tZc4x5Q-v7CkrQ6M-)
+
+![screenshot](/res/example.png)
