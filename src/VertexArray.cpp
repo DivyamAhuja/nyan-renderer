@@ -6,10 +6,6 @@ VertexArray::VertexArray()
     glGenVertexArrays(1, &ID);
 }
 
-VertexArray::~VertexArray()
-{
-    this->Delete();
-}
 
 void VertexArray::linkAttrib(VertexBuffer& VBO, GLuint layout, GLuint count, GLboolean normalize, GLenum type, GLsizei stride, void* offset)
 {

@@ -1,9 +1,10 @@
 #include "ElementBuffer.h"
+#include <vector>
 
-ElementBuffer::ElementBuffer(GLuint* indices, GLsizeiptr size) {
+ElementBuffer::ElementBuffer(std::vector<GLuint>& indices) {
     glGenBuffers(1, &ID);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ID);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, size, indices, GL_STATIC_DRAW);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(GLuint), indices.data(), GL_STATIC_DRAW);
 }
 
 void ElementBuffer::bind() {
@@ -19,8 +20,4 @@ void ElementBuffer::Delete() {
         glDeleteBuffers(1, &ID);
         ID = 0;
     }
-}
-
-ElementBuffer::~ElementBuffer() {
-    this->Delete();
 }

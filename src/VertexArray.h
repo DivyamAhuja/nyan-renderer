@@ -10,8 +10,7 @@ class VertexArray {
 public:
     GLuint ID;
     VertexArray();
-    ~VertexArray();
-
+    
     void linkAttrib(VertexBuffer& VBO, GLuint layout, GLuint count, GLboolean normalize, GLenum type, GLsizei stride, void* offset);
     void linkAttrib(GLuint layout, GLuint count, GLboolean normalize, GLenum type, GLsizei stride, void* offset);
     void linkLayout(VertexBuffer& VBO, VertexLayout& layout);
