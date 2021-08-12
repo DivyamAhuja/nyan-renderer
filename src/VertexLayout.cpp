@@ -5,9 +5,6 @@ VertexLayout::VertexLayout()
 
 }
 
-VertexLayout::~VertexLayout() {
-
-}
 
 std::vector<VertexLayout::layout_element>& VertexLayout::getLayout() {
     return layout;

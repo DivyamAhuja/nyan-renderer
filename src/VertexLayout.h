@@ -29,8 +29,7 @@ public:
     std::vector<layout_element> layout;
     
     VertexLayout();
-    ~VertexLayout();
-
+    
     std::vector<layout_element>& getLayout();
     
     void push(layout_element element);
