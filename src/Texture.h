@@ -2,25 +2,22 @@
 #define TEXTURE_CLASS_H
 
 #include <glad/glad.h>
+#include <glm/glm.hpp>
 #include "Shader.h"
 
-class Texture {
-private:
 
+class Texture
+{
 public:
-    GLuint ID;
-    GLenum type;
-    int imgWidth, imgHeight, numColorChannels;
-    
-    Texture() = delete;
-    Texture(const char* filename, GLenum texType, GLenum slot, GLenum format, GLenum pixelType);
-    ~Texture();
+	GLuint ID;
+	const char* type;
+	GLuint unit;
 
-    void texUnit(Shader& shader, const char* uniform, GLuint unit);
+	Texture(const char* image, const char* texType, GLuint slot);
 
-    void bind();
-    void unbind();
-    void Delete();
+	void texUnit(Shader& shader, const char* uniform, GLuint unit);
+	void Bind();
+	void Unbind();
+	void Delete();
 };
-
 #endif

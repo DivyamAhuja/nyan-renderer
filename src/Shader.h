@@ -16,7 +16,7 @@ private:
 
 public:
     GLuint ID;
-    Shader(const char* vertexFile, const char* shaderFile);
+    Shader(const char* vertexFile, const char* shaderFile, const char* geometryFile = nullptr);
     ~Shader();
 
     void Activate();
