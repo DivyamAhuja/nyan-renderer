@@ -38,9 +38,13 @@ target_link_libraries(${PROJECT_NAME} glm)
 target_include_directories(${PROJECT_NAME} PRIVATE dependencies/stb/include)
 #
 
-#
+# ImGui
 add_subdirectory(dependencies/imgui)
 target_link_libraries(${PROJECT_NAME} imgui)
+#
+
+# Nlohmann JSON
+target_include_directories(${PROJECT_NAME} PRIVATE dependencies/nlohmann)
 #
 
 file(GLOB_RECURSE ASSETS RELATIVE ${PROJECT_SOURCE_DIR} "res/*")
@@ -51,18 +55,3 @@ add_custom_command(
     COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_CURRENT_LIST_DIR}/${ASSET} $<TARGET_FILE_DIR:${PROJECT_NAME}>/${ASSET}
 )
 endforeach()
-#add_dependencies(${PROJECT_NAME} copy_assets)
-
-
-# COPY RESOURCES
-#file(GLOB_RECURSE ASSETS RELATIVE ${PROJECT_SOURCE_DIR} "res/*")
-#
-#foreach(ASSET ${ASSETS})
-#    file(GENERATE OUTPUT ${ASSET} INPUT ${ASSET})
-#endforeach(ASSET ${ASSETS})
-#
-#add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
-#                   COMMAND ${CMAKE_COMMAND} -E copy_if_different
-#                       ${CMAKE_CURRENT_SOURCE_DIR}/res/
-#                       $<TARGET_FILE_DIR:MyExe>
-#                   )
